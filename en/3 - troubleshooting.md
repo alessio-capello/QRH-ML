@@ -34,7 +34,7 @@ Procedures for when the model completes training but the metrics are wrong.
 
 ### [SYMPTOM] High Loss in Training, High Loss in Validation (Severe Underfitting)
 * **Diagnosis:** The model lacks the capacity (parameters) to map the complexity of the problem, or is overly regularized.
-  * *Quick Fix 1 (Capacity):* Increase complexity (more trees in RF, more layers/neurons in MLP, switch from ResNet-18 to ResNet-50).
+  * *Quick Fix 1 (Capacity):* Increase complexity (more trees in RF, more layers/neurons in [MLP](0%20-%20hot%20to%20use.md#essential-acronym-glossary), switch from ResNet-18 to ResNet-50).
   * *Quick Fix 2 (Regularization):* Reduce Dropout, lower L1/L2 penalties (Weight Decay), decrease `min_samples_leaf` in trees.
   * *Quick Fix 3 (Features):* Do Feature Engineering (create polynomial interactions).
 
@@ -49,11 +49,11 @@ Procedures for when the model completes training but the metrics are wrong.
 ## 3.3 DATA PIPELINE & HARDWARE FAILURES
 Procedures for infrastructure issues or logical contamination of data.
 
-### [SYMPTOM] OOM (Out Of Memory) Error on GPU
-* **Diagnosis:** The gradient tensor and feature maps exceed physical VRAM (typical in Transformers or high-resolution Computer Vision).
+### [SYMPTOM] [OOM](0%20-%20hot%20to%20use.md#essential-acronym-glossary) (Out Of Memory) Error on [GPU](0%20-%20hot%20to%20use.md#essential-acronym-glossary)
+* **Diagnosis:** The gradient tensor and feature maps exceed physical [VRAM](0%20-%20hot%20to%20use.md#essential-acronym-glossary) (typical in Transformers or high-resolution Computer Vision).
   * *Quick Fix 1 (Immediate):* Iteratively halve the `batch_size` (e.g. 64 -> 32 -> 16).
   * *Quick Fix 2 (Gradient Accumulation):* If a low `batch_size` makes gradients unstable, simulate larger batches by calculating gradients on small batches and updating weights only every N steps.
-  * *Quick Fix 3 (Precision):* Enable Mixed Precision Training (FP16 / BF16). It halves VRAM usage with almost no loss in accuracy.
+  * *Quick Fix 3 (Precision):* Enable Mixed Precision Training (FP16 / BF16). It halves [VRAM](0%20-%20hot%20to%20use.md#essential-acronym-glossary) usage with almost no loss in accuracy.
 
 ### [SYMPTOM] Model is “Perfect” in Test (e.g. Accuracy 99%) but a disaster in the real world
 * **Diagnosis: Data Leakage.** Target information is accidentally included in the features, or the Validation Set is contaminated by the Training Set.

@@ -19,6 +19,15 @@ This handbook is designed for rapid triage. The header of each model card contai
 * **Task:** `[CLASSIFICATION]`, `[REGRESSION]`, `[CLUSTERING]`, `[GENERATION]`, `[ANOMALY DETECTION]`.
 * **Warning / Status:** `[HIGH INTERPRETABILITY]`, `[SOTA]` (State Of The Art), `[BLACK-BOX]`, `[MEMORY INTENSIVE]`.
 
+**ML PARADIGMS AND TASK TYPES**
+* **Supervised learning:** Learns from labeled examples, where the target outcome is known; commonly used for regression and classification.
+* **Unsupervised learning:** Finds structure in unlabeled data, such as clusters, latent representations, or anomalies.
+* **Self-supervised learning:** Creates training signals from the data itself, for example by masking part of an input and predicting it.
+* **Semi-supervised learning:** Combines a small labeled dataset with a larger unlabeled dataset to improve learning.
+* **Reinforcement learning (RL):** An agent learns by taking actions in an environment and optimizing cumulative rewards.
+* **Regression:** Predicts a continuous numerical value, such as a price, temperature, or demand.
+* **Classification:** Predicts a discrete class or probability, such as spam/not spam or a disease category.
+
 **READING STANDARD: GO / NO-GO**
 * **GO:** Optimal conditions in which the model shines or represents the de facto industrial baseline. If your problem matches the GO, stop and implement it.
 * **NO-GO:** Conditions in which using the model will cause engineering bottlenecks, mathematical errors (e.g. OOM), or catastrophic performance. Ignoring a NO-GO means failing deployment.
@@ -30,6 +39,15 @@ This handbook is designed for rapid triage. The header of each model card contai
 * **SOTA:** [State Of The Art](#essential-acronym-glossary) (The model currently performing best for a given task).
 * **VRAM:** [Video RAM](#essential-acronym-glossary) (GPU memory, the primary physical limit in Deep Learning).
 * **KL:** [Kullback-Leibler Divergence](#essential-acronym-glossary) (Measure of difference between probability distributions).
+* **CPU / GPU:** [Central / Graphics Processing Unit](#essential-acronym-glossary) (CPU = general-purpose compute; GPU = parallel compute for ML workloads).
+* **ML / AI / DL:** [Machine Learning / Artificial Intelligence / Deep Learning](#essential-acronym-glossary) (core ML terminology used throughout the handbook).
+* **NLP / RL:** [Natural Language Processing / Reinforcement Learning](#essential-acronym-glossary) (the main task families referenced in the model cards).
+* **PCA / KNN / SVM / MLP:** [Principal Component Analysis / K-Nearest Neighbors / Support Vector Machines / Multi-Layer Perceptron](#essential-acronym-glossary) (common baseline and classical ML methods).
+* **CNN / RNN / LSTM / GRU / ViT / LLM:** [Convolutional Neural Network / Recurrent Neural Network / Long Short-Term Memory / Gated Recurrent Unit / Vision Transformer / Large Language Model](#essential-acronym-glossary) (deep learning architectures used in the handbook).
+* **VAE / GAN:** [Variational Autoencoder / Generative Adversarial Network](#essential-acronym-glossary) (representative generative modeling families).
+* **TF-IDF / BERT / T5:** [Term Frequency–Inverse Document Frequency / Bidirectional Encoder Representations from Transformers / Text-To-Text Transfer Transformer](#essential-acronym-glossary) (core NLP representations and model families).
+
+> Most acronyms in this handbook are linked to this glossary for quick lookup.
 
 ---
 

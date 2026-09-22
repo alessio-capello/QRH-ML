@@ -19,6 +19,15 @@ Questo manuale è progettato per il triage rapido. L'intestazione di ogni scheda
 * **Task:** `[CLASSIFICAZIONE]`, `[REGRESSIONE]`, `[CLUSTERING]`, `[GENERAZIONE]`, `[ANOMALY DETECTION]`.
 * **Warning / Status:** `[ALTA INTERPRETABILITA']`, `[SOTA]` (State Of The Art), `[BLACK-BOX]`, `[MEMORY INTENSIVE]`.
 
+**PARADIGMI ML E TIPI DI TASK**
+* **Apprendimento supervisionato:** Impara da esempi etichettati, per i quali il risultato atteso è noto; viene usato soprattutto per regressione e classificazione.
+* **Apprendimento non supervisionato:** Trova strutture nei dati non etichettati, come cluster, rappresentazioni latenti o anomalie.
+* **Apprendimento self-supervised:** Crea i segnali di addestramento dai dati stessi, per esempio mascherando una parte dell'input e prevedendola.
+* **Apprendimento semi-supervisionato:** Combina un piccolo dataset etichettato con un dataset non etichettato più grande per migliorare l'apprendimento.
+* **Reinforcement learning (RL):** Un agente impara compiendo azioni in un ambiente e massimizzando le ricompense cumulative.
+* **Regressione:** Prevede un valore numerico continuo, come prezzo, temperatura o domanda.
+* **Classificazione:** Prevede una classe discreta o una probabilità, come spam/non spam o una categoria di malattia.
+
 **STANDARD DI LETTURA: GO / NO-GO**
 * **GO:** Condizioni ottimali in cui il modello brilla o rappresenta la baseline industriale de facto. Se il tuo problema matcha il GO, fermati e implementa.
 * **NO-GO:** Condizioni in cui l'uso del modello causerà colli di bottiglia ingegneristici, errori matematici (es. OOM) o prestazioni catastrofiche. Ignorare un NO-GO significa fallire il deployment.
@@ -30,6 +39,15 @@ Questo manuale è progettato per il triage rapido. L'intestazione di ogni scheda
 * **SOTA:** [State Of The Art](#glossario-acronimi-essenziali) (Il modello attualmente più performante per un dato task).
 * **VRAM:** [Video RAM](#glossario-acronimi-essenziali) (Memoria della GPU, limite fisico primario nel Deep Learning).
 * **KL:** [Kullback-Leibler Divergence](#glossario-acronimi-essenziali) (Misura di differenza tra distribuzioni di probabilità).
+* **CPU / GPU:** [Central / Graphics Processing Unit](#glossario-acronimi-essenziali) (CPU = elaborazione generica; GPU = elaborazione parallela per workload ML).
+* **ML / AI / DL:** [Machine Learning / Artificial Intelligence / Deep Learning](#glossario-acronimi-essenziali) (terminologia di base usata in tutto il manuale).
+* **NLP / RL:** [Natural Language Processing / Reinforcement Learning](#glossario-acronimi-essenziali) (le famiglie principali di task citate nelle schede modello).
+* **PCA / KNN / SVM / MLP:** [Principal Component Analysis / K-Nearest Neighbors / Support Vector Machines / Multi-Layer Perceptron](#glossario-acronimi-essenziali) (metodi classici e baseline del manuale).
+* **CNN / RNN / LSTM / GRU / ViT / LLM:** [Convolutional Neural Network / Recurrent Neural Network / Long Short-Term Memory / Gated Recurrent Unit / Vision Transformer / Large Language Model](#glossario-acronimi-essenziali) (architetture deep learning del manuale).
+* **VAE / GAN:** [Variational Autoencoder / Generative Adversarial Network](#glossario-acronimi-essenziali) (famiglie di modellistica generativa).
+* **TF-IDF / BERT / T5:** [Term Frequency–Inverse Document Frequency / Bidirectional Encoder Representations from Transformers / Text-To-Text Transfer Transformer](#glossario-acronimi-essenziali) (rappresentazioni e famiglie modello NLP principali).
+
+> La maggior parte degli acronimi nel manuale è collegata a questo glossario per un lookup rapido.
 
 ---
 

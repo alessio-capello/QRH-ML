@@ -14,7 +14,7 @@ Questa sezione contiene le procedure di emergenza per la diagnostica e la risolu
 Procedure per quando l'addestramento fallisce matematicamente o si blocca.
 
 ### [SINTOMO] Loss = NaN (Not a Number)
-* **Diagnosi 1: Gradient Explosion.** I gradienti sono cresciuti in modo esponenziale, superando il limite dei float32. Tipico in RNN, LSTM e Transformer senza warmup.
+* **Diagnosi 1: Gradient Explosion.** I gradienti sono cresciuti in modo esponenziale, superando il limite dei float32. Tipico in [RNN](0%20-%20hot%20to%20use.md#glossario-acronimi-essenziali), [LSTM](0%20-%20hot%20to%20use.md#glossario-acronimi-essenziali) e Transformer senza warmup.
   * *Quick Fix:* Inserire Gradient Clipping (`clipnorm=1.0` o `clipvalue=0.5`). Abbassare drasticamente il `learning_rate`.
 * **Diagnosi 2: Input Corrotti (Division by Zero / Log of Zero).**
   * *Quick Fix:* Controllare il dataset per valori `NaN` o `Inf` passati inosservati. Aggiungere un epsilon (`+ 1e-8`) prima di operazioni logaritmiche o divisioni nel calcolo della loss o nelle funzioni custom.
@@ -34,7 +34,7 @@ Procedure per quando il modello completa l'addestramento ma le metriche sono err
 
 ### [SINTOMO] Alta Loss in Training, Alta Loss in Validation (Underfitting Grave)
 * **Diagnosi:** Il modello non ha la capacità (i parametri) per mappare la complessità del problema, oppure è eccessivamente regolarizzato.
-  * *Quick Fix 1 (Capacità):* Aumentare la complessità (più alberi in RF, più layer/neuroni in MLP, passare da ResNet-18 a ResNet-50).
+  * *Quick Fix 1 (Capacità):* Aumentare la complessità (più alberi in RF, più layer/neuroni in [MLP](0%20-%20hot%20to%20use.md#glossario-acronimi-essenziali), passare da ResNet-18 a ResNet-50).
   * *Quick Fix 2 (Regolarizzazione):* Ridurre il Dropout, abbassare le penalità L1/L2 (Weight Decay), diminuire `min_samples_leaf` negli alberi.
   * *Quick Fix 3 (Feature):* Fare Feature Engineering (creare interazioni polinomiali).
 
@@ -49,11 +49,11 @@ Procedure per quando il modello completa l'addestramento ma le metriche sono err
 ## 3.3 DATA PIPELINE & HARDWARE FAILURES
 Procedure per problemi di infrastruttura o contaminazione logica dei dati.
 
-### [SINTOMO] OOM (Out Of Memory) Error sulla GPU
-* **Diagnosi:** Il tensore dei gradienti e le feature map superano la VRAM fisica (tipico nei Transformer o nella Computer Vision ad alta risoluzione).
+### [SINTOMO] [OOM](0%20-%20hot%20to%20use.md#glossario-acronimi-essenziali) (Out Of Memory) Error sulla [GPU](0%20-%20hot%20to%20use.md#glossario-acronimi-essenziali)
+* **Diagnosi:** Il tensore dei gradienti e le feature map superano la [VRAM](0%20-%20hot%20to%20use.md#glossario-acronimi-essenziali) fisica (tipico nei Transformer o nella Computer Vision ad alta risoluzione).
   * *Quick Fix 1 (Immediata):* Dimezzare iterativamente il `batch_size` (es. 64 -> 32 -> 16).
   * *Quick Fix 2 (Gradient Accumulation):* Se un `batch_size` basso rende i gradienti instabili, simulare batch grandi calcolando i gradienti su batch piccoli e aggiornando i pesi solo ogni N step.
-  * *Quick Fix 3 (Precisione):* Attivare Mixed Precision Training (FP16 / BF16). Dimezza il consumo di VRAM senza quasi perdere accuratezza.
+  * *Quick Fix 3 (Precisione):* Attivare Mixed Precision Training (FP16 / BF16). Dimezza il consumo di [VRAM](0%20-%20hot%20to%20use.md#glossario-acronimi-essenziali) senza quasi perdere accuratezza.
 
 ### [SINTOMO] Modello "Perfetto" in Test (es. Accuracy 99%) ma disastroso nel mondo reale
 * **Diagnosi: Data Leakage.** Informazioni sul target sono accidentalmente incluse nelle feature, o il Validation Set è contaminato dal Training Set.
