@@ -52,42 +52,42 @@ Cross the structure of the input tensor (Rows) with the macro algorithmic object
 Around 70% of business tasks fall here. Follow the boolean logic to filter the models.
 
 * **[IF]** Full mathematical interpretability and/or legal explainability of the decision is required:
-  * **[AND IF]** Features are continuous and independent ➡️ **Linear / Logistic Regression**
-  * **[AND IF]** The logic is based on rigid business rules (If-Then) ➡️ **Decision Trees**
+  * **[AND IF]** Features are continuous and independent — [**Linear / Logistic Regression**](2.1%20-%20baseline_lineari.md#211-linear--logistic-regression)
+  * **[AND IF]** The logic is based on rigid business rules (If-Then) — [**Decision Trees**](2.1%20-%20baseline_lineari.md#213-decision-trees-cart)
 * **[IF]** Full interpretability is not required (Black-Box allowed):
-  * **[AND IF]** There is almost no time for hyper-tuning and a robust out-of-the-box baseline is needed ➡️ **Random Forest**
-  * **[AND IF]** You are looking for the maximum absolute predictive performance (SOTA) ➡️ **XGBoost / LightGBM**
+  * **[AND IF]** There is almost no time for hyper-tuning and a robust out-of-the-box baseline is needed — [**Random Forest**](2.2%20-%20ensemble.md#221-random-forest)
+  * **[AND IF]** You are looking for the maximum absolute predictive performance (SOTA) — [**XGBoost / LightGBM**](2.2%20-%20ensemble.md#222-gradient-boosting-machines-xgboost-lightgbm-catboost)
 * **[IF]** Pure anomaly detection on unlabeled tabular data:
-  * **[AND IF]** Features are linear or density-based ➡️ **DBSCAN**
-  * **[AND IF]** The dataset has highly complex, non-linear patterns ➡️ **Dense Autoencoders**
+  * **[AND IF]** Features are linear or density-based — [**DBSCAN**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan)
+  * **[AND IF]** The dataset has highly complex, non-linear patterns — [**Dense Autoencoders**](2.3%20-%20unsupervised.md#233-autoencoders-standard--vae)
 * **[IF]** The dataset is in the Terabyte range (well beyond system RAM):
-  * ➡️ **Multi-Layer Perceptron (MLP)** processed in mini-batches on GPU.
+  * — [**Multi-Layer Perceptron (MLP)**](2.4%20-%20deep%20learning.md#241-multi-layer-perceptron-mlp--ffn) processed in mini-batches on GPU.
 
 ## 1.3 DECISION TREE: VISION AND TIME SERIES (SPACE & TIME)
 
 **COMPUTER VISION (3D/4D Tensors)**
-* **[IF]** The task is to find unlabeled morphological anomalies (e.g. industrial defectoscopy on perfect parts) ➡️ **Conv-Autoencoders** (trained only on healthy samples, reconstruct defects poorly).
-* **[IF]** The task is to identify what is in the image (Classification) ➡️ **ResNet / EfficientNet** (or **ViT** if the dataset is massive).
+* **[IF]** The task is to find unlabeled morphological anomalies (e.g. industrial defectoscopy on perfect parts) — [**Conv-Autoencoders**](2.3%20-%20unsupervised.md#233-autoencoders-standard--vae) (trained only on healthy samples, reconstruct defects poorly).
+* **[IF]** The task is to identify what is in the image (Classification) — [**ResNet / EfficientNet**](2.6%20-%20computer%20vision.md#261-2d-cnn-backbones-resnet-efficientnet) (or [**ViT**](2.6%20-%20computer%20vision.md#265-vision-transformers-vit) if the dataset is massive).
 * **[IF]** The task is to find the exact position of the objects:
-  * **[AND IF]** Real-time localization with rectangular bounding boxes is required ➡️ **YOLO**
-  * **[AND IF]** Millimetric classification of each individual pixel is required (no overlap) ➡️ **U-Net**
-  * **[AND IF]** Individual objects of the same class overlapping each other must be separated ➡️ **Mask R-CNN**
+  * **[AND IF]** Real-time localization with rectangular bounding boxes is required — [**YOLO**](2.6%20-%20computer%20vision.md#262-yolo-family-you-only-look-once)
+  * **[AND IF]** Millimetric classification of each individual pixel is required (no overlap) — [**U-Net**](2.6%20-%20computer%20vision.md#263-u-net)
+  * **[AND IF]** Individual objects of the same class overlapping each other must be separated — [**Mask R-CNN**](2.6%20-%20computer%20vision.md#264-mask-r-cnn)
 
 **TIME SERIES & SIGNALS (Temporal Tensors)**
-* **[IF]** The task is to detect anomalous behaviors in the signal over time (vibrations, EEG, network logs) ➡️ **1D-CNN Autoencoder** (fast) or **LSTM Autoencoder** (long memory).
+* **[IF]** The task is to detect anomalous behaviors in the signal over time (vibrations, EEG, network logs) — [**1D-CNN Autoencoder**](2.3%20-%20unsupervised.md#233-autoencoders-standard--vae) (fast) or [**LSTM Autoencoder**](2.3%20-%20unsupervised.md#233-autoencoders-standard--vae) (long memory).
 * **[IF]** Univariate Forecasting (Predict the future of a single historical variable):
-  * **[AND IF]** Strong short-term autoregressive logic ➡️ **ARIMA / SARIMAX**
-  * **[AND IF]** Strong combined seasonality (e.g. retail sales) ➡️ **Prophet**
+  * **[AND IF]** Strong short-term autoregressive logic — [**ARIMA / SARIMAX**](2.5%20-%20time%20series.md#251-arima--sarimax)
+  * **[AND IF]** Strong combined seasonality (e.g. retail sales) — [**Prophet**](2.5%20-%20time%20series.md#252-prophet-meta)
 * **[IF]** Multivariate Forecasting or high-frequency Pattern Recognition:
-  * **[AND IF]** Need for GPU parallelization and extreme speed ➡️ **1D-CNN / TCN**
-  * **[AND IF]** Complex variable-length temporal relations ➡️ **LSTM / GRU**
+  * **[AND IF]** Need for GPU parallelization and extreme speed — [**1D-CNN / TCN**](2.5%20-%20time%20series.md#253-1d-cnn--tcn-temporal-convolutional-networks)
+  * **[AND IF]** Complex variable-length temporal relations — [**LSTM / GRU**](2.5%20-%20time%20series.md#254-rnn-lstm--gru-recurrent-neural-networks)
 
 ## 1.4 DECISION TREE: NLP & TEXT GENERATION
-* **[IF]** The task is to generate long, dynamic text output, or act as an assistant/agent ➡️ **LLM Decoder-only (Llama, Qwen)**
-* **[IF]** The task is the direct structured transformation of text (Translation, Summarization) ➡️ **Sequence-to-Sequence (T5, BART)**
+* **[IF]** The task is to generate long, dynamic text output, or act as an assistant/agent — [**LLM Decoder-only (Llama, Qwen)**](2.7%20-%20NLP.md#273-transformer-decoders-llms-llama-qwen-etc)
+* **[IF]** The task is the direct structured transformation of text (Translation, Summarization) — [**Sequence-to-Sequence (T5, BART)**](2.7%20-%20NLP.md#274-sequence-to-sequence-t5-bart)
 * **[IF]** The task is to label text (Sentiment, NER) or extract dense vector embeddings:
-  * **[AND IF]** Deep semantic understanding of the language is required ➡️ **Transformer Encoders (BERT, RoBERTa)**
-  * **[AND IF]** An ultra-light baseline computable on CPU in a few seconds is required ➡️ **TF-IDF + Naive Bayes**
+  * **[AND IF]** Deep semantic understanding of the language is required — [**Transformer Encoders (BERT, RoBERTa)**](2.7%20-%20NLP.md#272-transformer-encoders-bert-roberta)
+  * **[AND IF]** An ultra-light baseline computable on CPU in a few seconds is required — [**TF-IDF + Naive Bayes**](2.7%20-%20NLP.md#271-tf-idf--naive-bayes)
 
 ## 1.5 DECISION TREE: UNSUPERVISED, CLUSTERING & REPRESENTATION
 This section maps models when labels are absent (unlabeled data) and the goal is pattern discovery or data compression (Feature Extraction).
@@ -107,7 +107,7 @@ The final check before starting training.
 
 | PROJECT CONSTRAINTS | ACTION / RECOMMENDED MODEL | MODELS TO AVOID (NO-GO) |
 | :--- | :--- | :--- |
-| **Ultra-Low Inference Latency (Milliseconds)** | Linear/Logistic, Decision Trees, YOLO, TF-IDF, 1D-CNN. | KNN (O(N) in prediction), RF (>500 trees), Mask R-CNN, LLMs. |
-| **Edge Serverless Deployment (No GPU available)** | Random Forest, XGBoost (CPU inference), SVM, Prophet. | Transformers, ViT, Deep CNNs, LSTM, Generative Autoencoders. |
-| **Very Limited GPU VRAM (< 8 GB)** | 1D-CNN, GRU, ResNet-50 (batch < 16), YOLO Nano, LoRA on LLM. | Mask R-CNN, ViT, LLM Full-Parameter, High-Resolution 3D U-Net. |
-| **Cold Start / Small Data (Very Little Data)** | SVM, Decision Trees, Naive Bayes. *(For Vision/Text: Transfer Learning is mandatory).* | Tabular MLPs, ViT trained from scratch, LSTM, Generative GANs/VAE. |
+| **Ultra-Low Inference Latency (Milliseconds)** | [Linear/Logistic](2.1%20-%20baseline_lineari.md#211-linear--logistic-regression), [Decision Trees](2.1%20-%20baseline_lineari.md#213-decision-trees-cart), [YOLO](2.6%20-%20computer%20vision.md#262-yolo-family-you-only-look-once), [TF-IDF](2.7%20-%20NLP.md#271-tf-idf--naive-bayes), [1D-CNN](2.5%20-%20time%20series.md#253-1d-cnn--tcn-temporal-convolutional-networks). | [KNN](2.1%20-%20baseline_lineari.md#212-k-nearest-neighbors-knn) (O(N) in prediction), [RF](2.2%20-%20ensemble.md#221-random-forest) (>500 trees), [Mask R-CNN](2.6%20-%20computer%20vision.md#264-mask-r-cnn), [LLMs](2.7%20-%20NLP.md#273-transformer-decoders-llms-llama-qwen-etc). |
+| **Edge Serverless Deployment (No GPU available)** | [Random Forest](2.2%20-%20ensemble.md#221-random-forest), [XGBoost](2.2%20-%20ensemble.md#222-gradient-boosting-machines-xgboost-lightgbm-catboost) (CPU inference), [SVM](2.1%20-%20baseline_lineari.md#214-support-vector-machines-svm), [Prophet](2.5%20-%20time%20series.md#252-prophet-meta). | [Transformers](2.7%20-%20NLP.md#272-transformer-encoders-bert-roberta), [ViT](2.6%20-%20computer%20vision.md#265-vision-transformers-vit), [Deep CNNs](2.6%20-%20computer%20vision.md#261-2d-cnn-backbones-resnet-efficientnet), [LSTM](2.5%20-%20time%20series.md#254-rnn-lstm--gru-recurrent-neural-networks), [Generative Autoencoders](2.3%20-%20unsupervised.md#233-autoencoders-standard--vae). |
+| **Very Limited GPU VRAM (< 8 GB)** | [1D-CNN](2.5%20-%20time%20series.md#253-1d-cnn--tcn-temporal-convolutional-networks), [GRU](2.5%20-%20time%20series.md#254-rnn-lstm--gru-recurrent-neural-networks), [ResNet-50](2.6%20-%20computer%20vision.md#261-2d-cnn-backbones-resnet-efficientnet) (batch < 16), [YOLO Nano](2.6%20-%20computer%20vision.md#262-yolo-family-you-only-look-once), [LoRA on LLM](2.7%20-%20NLP.md#273-transformer-decoders-llms-llama-qwen-etc). | [Mask R-CNN](2.6%20-%20computer%20vision.md#264-mask-r-cnn), [ViT](2.6%20-%20computer%20vision.md#265-vision-transformers-vit), [LLM Full-Parameter](2.7%20-%20NLP.md#273-transformer-decoders-llms-llama-qwen-etc), [High-Resolution 3D U-Net](2.6%20-%20computer%20vision.md#263-u-net). |
+| **Cold Start / Small Data (Very Little Data)** | [SVM](2.1%20-%20baseline_lineari.md#214-support-vector-machines-svm), [Decision Trees](2.1%20-%20baseline_lineari.md#213-decision-trees-cart), [Naive Bayes](2.7%20-%20NLP.md#271-tf-idf--naive-bayes). *(For Vision/Text: Transfer Learning is mandatory).* | [Tabular MLPs](2.4%20-%20deep%20learning.md#241-multi-layer-perceptron-mlp--ffn), [ViT trained from scratch](2.6%20-%20computer%20vision.md#265-vision-transformers-vit), [LSTM](2.5%20-%20time%20series.md#254-rnn-lstm--gru-recurrent-neural-networks), [Generative GANs/VAE](2.3%20-%20unsupervised.md#233-autoencoders-standard--vae). |
