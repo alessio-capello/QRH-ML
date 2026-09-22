@@ -111,14 +111,14 @@ Around 70% of business tasks fall here. Follow the boolean logic to filter the m
 This section maps models when labels are absent (unlabeled data) and the goal is pattern discovery or data compression (Feature Extraction).
 
 * **[IF]** The task is pure clustering on native tabular data:
-  * **[AND IF]** Spherical clusters are assumed and the number of groups is known a priori ➡️ [**K-Means**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan)
-  * **[AND IF]** Arbitrary shapes are sought, noise should be isolated, and the number of groups is unknown ➡️ [**DBSCAN**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan)
+  * **[AND IF]** Spherical clusters are assumed and the number of groups is known a priori — [**K-Means**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan)
+  * **[AND IF]** Arbitrary shapes are sought, noise should be isolated, and the number of groups is unknown — [**DBSCAN**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan)
 * **[IF]** The dataset is complex (Images, high-frequency IoT signals, Text) and direct clustering would fail due to the Curse of Dimensionality (Deep Clustering Pipeline):
-  * **[AND IF]** The goal is to visually group data in 2D/3D ➡️ Feature extraction + [**UMAP / t-SNE**](2.3%20-%20unsupervised.md#232-dimensionality-reduction-pca-t-sne-umap) + [**DBSCAN**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan)
-  * **[AND IF]** The goal is logical high-dimensional grouping (e.g. 64-128D) ➡️ [**Autoencoder (Conv/1D/Dense)**](2.3%20-%20unsupervised.md#233-autoencoders-standard--vae) to extract the Latent Space ➡️ [**K-Means / DBSCAN**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan) on the Latent Space.
+  * **[AND IF]** The goal is to visually group data in 2D/3D — Feature extraction + [**UMAP / t-SNE**](2.3%20-%20unsupervised.md#232-dimensionality-reduction-pca-t-sne-umap) + [**DBSCAN**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan)
+  * **[AND IF]** The goal is logical high-dimensional grouping (e.g. 64-128D) — [**Autoencoder (Conv/1D/Dense)**](2.3%20-%20unsupervised.md#233-autoencoders-standard--vae) to extract the Latent Space — [**K-Means / DBSCAN**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan) on the Latent Space.
 * **[IF]** The task is Dimensionality Reduction to speed up downstream Machine Learning models:
-  * **[AND IF]** You want to preserve global linear distances rigorously ➡️ [**PCA**](2.3%20-%20unsupervised.md#232-dimensionality-reduction-pca-t-sne-umap)
-  * **[AND IF]** You want to preserve local topological relations (non-linear manifolds) ➡️ [**UMAP**](2.3%20-%20unsupervised.md#232-dimensionality-reduction-pca-t-sne-umap)
+  * **[AND IF]** You want to preserve global linear distances rigorously — [**PCA**](2.3%20-%20unsupervised.md#232-dimensionality-reduction-pca-t-sne-umap)
+  * **[AND IF]** You want to preserve local topological relations (non-linear manifolds) — [**UMAP**](2.3%20-%20unsupervised.md#232-dimensionality-reduction-pca-t-sne-umap)
 
 ## 1.6 HARDWARE & LATENCY CONSTRAINTS MATRIX
 The final check before starting training.

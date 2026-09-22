@@ -111,14 +111,14 @@ Il 70% dei task aziendali ricade qui. Segui la logica booleana per filtrare i mo
 Questa sezione mappa i modelli quando NON si hanno label (dati non etichettati) e l'obiettivo è la scoperta di pattern o la compressione del dato (Feature Extraction).
 
 * **[IF]** Il task è il Clustering puro su dati tabulari nativi:
-  * **[AND IF]** Si ipotizzano cluster sferici e si conosce a priori il numero di gruppi ➡️ [**K-Means**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan)
-  * **[AND IF]** Si cercano forme arbitrarie, si vuole isolare il rumore e non si conosce il numero di gruppi ➡️ [**DBSCAN**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan)
+  * **[AND IF]** Si ipotizzano cluster sferici e si conosce a priori il numero di gruppi — [**K-Means**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan)
+  * **[AND IF]** Si cercano forme arbitrarie, si vuole isolare il rumore e non si conosce il numero di gruppi — [**DBSCAN**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan)
 * **[IF]** Il dataset è complesso (Immagini, Segnali IoT ad alta frequenza, Testo) e il Clustering diretto fallirebbe per la Maledizione della Dimensionalità (Deep Clustering Pipeline):
-  * **[AND IF]** L'obiettivo è raggruppare visivamente i dati in 2D/3D ➡️ Estrazione feature + [**UMAP / t-SNE**](2.3%20-%20unsupervised.md#232-dimensionality-reduction-pca-t-sne-umap) + [**DBSCAN**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan)
-  * **[AND IF]** L'obiettivo è un raggruppamento logico ad alta dimensione (es. 64-128D) ➡️ [**Autoencoder (Conv/1D/Dense)**](2.3%20-%20unsupervised.md#233-autoencoders-standard--vae) per estrarre lo Spazio Latente ➡️ [**K-Means / DBSCAN**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan) sullo Spazio Latente.
+  * **[AND IF]** L'obiettivo è raggruppare visivamente i dati in 2D/3D — Estrazione feature + [**UMAP / t-SNE**](2.3%20-%20unsupervised.md#232-dimensionality-reduction-pca-t-sne-umap) + [**DBSCAN**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan)
+  * **[AND IF]** L'obiettivo è un raggruppamento logico ad alta dimensione (es. 64-128D) — [**Autoencoder (Conv/1D/Dense)**](2.3%20-%20unsupervised.md#233-autoencoders-standard--vae) per estrarre lo Spazio Latente — [**K-Means / DBSCAN**](2.3%20-%20unsupervised.md#231-clustering-k-means--dbscan) sullo Spazio Latente.
 * **[IF]** Il task è la Riduzione della Dimensionalità per accelerare modelli di Machine Learning a valle:
-  * **[AND IF]** Si vogliono preservare rigorosamente le distanze globali e lineari ➡️ [**PCA**](2.3%20-%20unsupervised.md#232-dimensionality-reduction-pca-t-sne-umap)
-  * **[AND IF]** Si vogliono preservare le relazioni topologiche locali (manifold non lineari) ➡️ [**UMAP**](2.3%20-%20unsupervised.md#232-dimensionality-reduction-pca-t-sne-umap)
+  * **[AND IF]** Si vogliono preservare rigorosamente le distanze globali e lineari — [**PCA**](2.3%20-%20unsupervised.md#232-dimensionality-reduction-pca-t-sne-umap)
+  * **[AND IF]** Si vogliono preservare le relazioni topologiche locali (manifold non lineari) — [**UMAP**](2.3%20-%20unsupervised.md#232-dimensionality-reduction-pca-t-sne-umap)
 
 ## 1.6 HARDWARE & LATENCY CONSTRAINTS MATRIX
 Il check finale prima di avviare l'addestramento.
